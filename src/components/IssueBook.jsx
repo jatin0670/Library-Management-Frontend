@@ -23,7 +23,7 @@ const IssueBook = () => {
   }
 
   const handleSubmit = (e)=>{
-      axios.post("http://localhost:8080/issuebook", form)
+      axios.post("https://library-management-backend-anmt.onrender.com/issuebook", form)
       .then((response)=>{
         setIssueBook([...issueBook, response.data])
 
@@ -32,7 +32,7 @@ const IssueBook = () => {
 
   const deleteIssueBook = (id)=>{
     if(window.confirm("Are you sure you want to delete this record?")){
-        axios.delete(`http://localhost:8080/issuebook/${id}`)
+        axios.delete(`https://library-management-backend-anmt.onrender.com/issuebook/${id}`)
         .then(()=>{
            setIssueBook(issueBook.filter((e)=> e.id !== id))
         })
@@ -40,7 +40,7 @@ const IssueBook = () => {
   }
 
   useEffect(()=>{
-    axios.get("http://localhost:8080/allissuebooks")
+    axios.get("hhttps://library-management-backend-anmt.onrender.com/allissuebooks")
     .then((response)=>{
           setIssueBook(response.data)
           console.log(response.data)
@@ -48,7 +48,7 @@ const IssueBook = () => {
   }, [])
 
   useEffect(()=>{                                   
-    axios.get("http://localhost:8080/allbooks")
+    axios.get("https://library-management-backend-anmt.onrender.com/allbooks")
     .then((response)=>{
         setBook(response.data);
         console.log(response.data);
@@ -56,7 +56,7 @@ const IssueBook = () => {
  }, [])
 
  useEffect(()=>{
-  axios.get("http://localhost:8080/allstudents")
+  axios.get("https://library-management-backend-anmt.onrender.com/allstudents")
   .then((response)=>{
       setStudent(response.data);
       console.log(response.data)

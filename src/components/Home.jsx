@@ -13,7 +13,7 @@ const Home = () => {
   const [issueBookNo, setIssueBookNo] = useState(0)
 
   useEffect(()=>{
-    axios.get("http://localhost:8080/allbooks")
+    axios.get("https://library-management-backend-anmt.onrender.com/allbooks")
     .then((response)=>{
        setBookNo(response.data.length)
        console.log(response.data.length);
@@ -22,7 +22,7 @@ const Home = () => {
  }, [])
 
  useEffect(()=>{
-  axios.get("http://localhost:8080/allstudents")
+  axios.get("https://library-management-backend-anmt.onrender.com/allstudents")
   .then((response)=>{
      setStudentNo(response.data.length)
      console.log(response.data.length);
@@ -31,7 +31,7 @@ const Home = () => {
 }, [])
 
 useEffect(()=>{
-  axios.get("http://localhost:8080/allissuebooks")
+  axios.get("https://library-management-backend-anmt.onrender.com/allissuebooks")
   .then((response)=>{
      setIssueBookNo(response.data.length)
      console.log(response.data.length);
