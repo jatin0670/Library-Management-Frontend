@@ -20,6 +20,7 @@ const ManageStudent = () => {
    }
 
    const handleSubmit = (e)=>{
+       e.preventDefault()
        axios.post("https://library-management-backend-anmt.onrender.com/student", form)
        .then(response);
        setStudent([...student, response.data]);

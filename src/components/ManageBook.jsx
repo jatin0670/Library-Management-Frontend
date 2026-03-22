@@ -20,7 +20,7 @@ const ManageBook = () => {
   }
 
   const handleSubmit = (e)=>{
-    // e.preventDefault()
+    e.preventDefault()
      axios.post("https://library-management-backend-anmt.onrender.com/book", form)
      .then((response)=>{
         setBook([...book, response.data])
@@ -52,7 +52,7 @@ const ManageBook = () => {
       <h1 className='p-3 text-4xl text-[#294666] font-bold flex items-center justify-center '>Manage Books </h1>
 
       <form onSubmit={handleSubmit} className='py-2 h-3/4 w-2/5 bg-white flex flex-col items-center justify-around rounded-md 
-      shadow-sm shadow-black' action="">
+      shadow-sm shadow-black'>
         <div className=' w-4/5 flex flex-col gap-2'>
           <label className=' text-gray-600 text-2xl font-medium' htmlFor="">Title</label>
           <input name='title' value={form.title} onChange={handleChange} className='px-3 py-2 text-black outline-gray-600 outline rounded-lg' type="text" />

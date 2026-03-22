@@ -23,6 +23,7 @@ const IssueBook = () => {
   }
 
   const handleSubmit = (e)=>{
+      e.preventDefault()
       axios.post("https://library-management-backend-anmt.onrender.com/issuebook", form)
       .then((response)=>{
         setIssueBook([...issueBook, response.data])
