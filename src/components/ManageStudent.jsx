@@ -20,17 +20,17 @@ const ManageStudent = () => {
    }
 
    const handleSubmit = (e)=>{
-       if(form.name != "" || form.email!= "" || form.roll!= "" || form.course != ""){
-        axios.post("https://library-management-backend-anmt.onrender.com/student", form)
-        .then(response);
-        setStudent([...student, response.data]);
-       }
-       else{
-        window.alert("Please fill all the fields")
-        return;
-       }
+       e.preventDefault()
 
-       window.alert(`${form.name}: Student added`)
+       if(form.name === "" || form.email === "" || form.roll === "" || form.course === ""){
+          window.alert("Please fill all the fields")
+           return;
+       }
+       
+       axios.post("https://library-management-backend-anmt.onrender.com/student", form)
+       .then(response);
+       setStudent([...student, response.data]);
+       window.alert("Student added successfully!")
        
    }
 

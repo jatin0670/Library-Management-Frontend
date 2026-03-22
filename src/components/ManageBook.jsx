@@ -20,19 +20,18 @@ const ManageBook = () => {
   }
 
   const handleSubmit = (e)=>{
-    // e.preventDefault()
-    if(form.title != "" || form.author!= "" || form.qty != "" || form.available != ""){
-      axios.post("https://library-management-backend-anmt.onrender.com/book", form)
-      .then((response)=>{
-         setBook([...book, response.data])
-      })
-    }
-    else{
+    e.preventDefault()
+
+    if(form.title === "" || form.author === "" || form.qty === "" || form.available === ""){
       window.alert("Please fill all the fields")
       return;
     }
-
-    window.alert(`${form.book}: Book added`)
+    
+    axios.post("https://library-management-backend-anmt.onrender.com/book", form)
+      .then((response)=>{
+         setBook([...book, response.data])
+         window.alert("Student added successfully!")
+      })
      
   }
 

@@ -60,15 +60,44 @@ useEffect(()=>{
       <Card No={bookNo} text="Total Books"/>
       <Card No={studentNo} text="Total students"/>
       <Card No={issueBookNo} text="Total Issue Books"/>
-      <Card No="0" text="Total Fine Received"/>
       
     </div>
 
     <div className=' pt-16 bg-gray-800 h-screen w-full flex flex-col items-center gap-10'>
-        <h1 className='p-3 text-4xl text-white font-bold flex items-center justify-center '>Records</h1>
 
+      <h1 className='text-4xl text-white font-bold'>About</h1>
+      
+      <p className='text-gray-300 text-xl text-center w-3/4'>
+        A Library Management System built with React and Spring Boot. 
+        Manage books, students, and track issued books easily.
+      </p>
+      
+      <div className='flex gap-30 text-white text-center'>
+      
+        <a target='blank' href="https://react.dev/">
+           <div className='bg-[#294666] px-10 py-6 rounded-lg'>
+               <h2 className='text-2xl font-bold'>React.JS</h2>
+               <p className='text-gray-300'>Frontend</p>
+           </div>
+        </a>
+      
+        <a target='blank' href="https://spring.io/projects/spring-boot">
+            <div className='bg-[#294666] px-10 py-6 rounded-lg'>
+                <h2 className='text-2xl font-bold'>Spring Boot</h2>
+                <p className='text-gray-300'>Backend</p>
+            </div>
+        </a>
+      
+        <a target='blank' href="https://www.mysql.com/">
+            <div className='bg-[#294666] px-10 py-6 rounded-lg'>
+                <h2 className='text-2xl font-bold'>MySQL</h2>
+                <p className='text-gray-300'>Database</p>
+            </div>
+        </a>
+      
+      </div>
     </div>
-    </div>
+  </div>
     
   )
 }

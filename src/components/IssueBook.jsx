@@ -23,20 +23,19 @@ const IssueBook = () => {
   }
 
   const handleSubmit = (e)=>{
-     if(form.name != "" || form.book != "" || form.issueDate != "" || form.returnDate){
+    e.preventDefault()
+    
+     if(form.name === "" || form.book === "" || form.issueDate === "" || form.returnDate){
+        window.alert("fill all the fields!")
+        return;
+     }
+       
         axios.post("https://library-management-backend-anmt.onrender.com/issuebook", form)
         .then((response)=>{
           setIssueBook([...issueBook, response.data])
-  
+          window.alert("Student added successfully!")
         })
-     }
-     else{
-      window.alert("Please fill all the fields")
-      return;
-     }
 
-     window.alert(`${form.name}: Book Issued`)
-      
   }
 
   const deleteIssueBook = (id)=>{

@@ -13,7 +13,7 @@ const Navbar = () => {
             <Link to="/issuebooks" className=' cursor-pointer'>Issue Book</Link>
             {/* <Link to="/returnbooks" className=' cursor-pointer'>Return Book</Link> */}
             {/* <Link to="/fines" className=' cursor-pointer'>Fines</Link> */}
-            <h1 className=' cursor-pointer hover:scale-95 p-3 bg-red-500 rounded-md shadow-lg '>SignUp/Login</h1>
+            {/* <h1 className=' cursor-pointer hover:scale-95 p-3 bg-red-500 rounded-md shadow-lg '>SignUp/Login</h1> */}
         </div>
       </div>
   )
