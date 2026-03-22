@@ -20,10 +20,18 @@ const ManageStudent = () => {
    }
 
    const handleSubmit = (e)=>{
-       e.preventDefault()
-       axios.post("https://library-management-backend-anmt.onrender.com/student", form)
-       .then(response);
-       setStudent([...student, response.data]);
+       if(form.name != "" || form.email!= "" || form.roll!= "" || form.course != ""){
+        axios.post("https://library-management-backend-anmt.onrender.com/student", form)
+        .then(response);
+        setStudent([...student, response.data]);
+       }
+       else{
+        window.alert("Please fill all the fields")
+        return;
+       }
+
+       window.alert(`${form.name}: Student added`)
+       
    }
 
    const deleteStudent = (id)=>{
