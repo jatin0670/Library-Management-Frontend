@@ -20,12 +20,20 @@ const ManageBook = () => {
   }
 
   const handleSubmit = (e)=>{
-    e.preventDefault()
-     axios.post("https://library-management-backend-anmt.onrender.com/book", form)
-     .then((response)=>{
-        setBook([...book, response.data])
-     })
-     setForm("")
+    // e.preventDefault()
+    if(form.title != "" || form.author!= "" || form.qty != "" || form.available != ""){
+      axios.post("https://library-management-backend-anmt.onrender.com/book", form)
+      .then((response)=>{
+         setBook([...book, response.data])
+      })
+    }
+    else{
+      window.alert("Please fill all the fields")
+      return;
+    }
+
+    window.alert(`${form.book}: Book added`)
+     
   }
 
   const deleteBook = (id)=>{
@@ -79,7 +87,7 @@ const ManageBook = () => {
     </div>
 
 
-    <div className=' pt-16 bg-gray-800 h-screen w-full flex flex-col items-center gap-10'>
+    <div className=' pt-16 bg-gray-800 h-full w-full flex flex-col items-center gap-10'>
         <h1 className='p-3 text-4xl text-white font-bold flex items-center justify-center '>Records</h1>
         <table className='w-3/4 text-white border-collapse'>
         <thead>
