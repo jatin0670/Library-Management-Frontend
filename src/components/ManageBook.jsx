@@ -25,6 +25,7 @@ const ManageBook = () => {
      .then((response)=>{
         setBook([...book, response.data])
      })
+     setForm("")
   }
 
   const deleteBook = (id)=>{
