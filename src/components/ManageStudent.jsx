@@ -57,7 +57,7 @@ const ManageStudent = () => {
   return (
   <div>
 
-    <div className=' pt-16 pb-16 bg-[#F2FAFF] h-full w-full flex flex-col items-center gap-10'>
+    <div className=' pt-16 bg-[#F2FAFF] h-screen w-full flex flex-col items-center gap-10'>
       <h1 className='p-3 text-4xl text-[#294666] font-bold flex items-center justify-center '>Manage Students </h1>
 
       <form onSubmit={handleSubmit} className='py-2 h-3/4 w-2/5 bg-white flex flex-col items-center justify-around rounded-md
@@ -81,7 +81,7 @@ const ManageStudent = () => {
       </form>
     </div>
 
-    <div className=' pt-16 bg-gray-800 h-screen w-full flex flex-col items-center gap-10' >
+    <div className=' pt-16 pb-16 bg-gray-800 h-full w-full flex flex-col items-center gap-10' >
     <h1 className='p-3 text-4xl text-white font-bold flex items-center justify-center '>Records</h1>
 
     <table className='w-3/4 text-white border-collapse'>
