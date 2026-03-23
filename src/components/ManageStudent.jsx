@@ -30,12 +30,14 @@ const ManageStudent = () => {
        }
        
        axios.post("https://library-management-backend-anmt.onrender.com/student", form)
-       .then(response);
-       setStudent([...student, response.data]);
-       window.alert("Student added successfully!")
-       setLoad(false)
+       .then((response) =>{
+          setStudent([...student, response.data]);
+          window.alert("Student added successfully!")
+          setLoad(false)
+          setForm({name: "", email: "", roll: "", course: ""});
+       })
        
-   }
+    }
 
    const deleteStudent = (id)=>{
     if(window.confirm("Are you sure you want to delete this record?")){

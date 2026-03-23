@@ -34,6 +34,7 @@ const ManageBook = () => {
          setBook([...book, response.data])
          window.alert("Student added successfully!")
          setLoad(false)
+         setForm({title: "", author: "", qty: "", available: ""})
       })
      
   }

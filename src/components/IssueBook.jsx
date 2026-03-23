@@ -38,6 +38,7 @@ const IssueBook = () => {
           setIssueBook([...issueBook, response.data])
           window.alert("Student added successfully!")
           setLoad(false)
+          setForm({name: "", book: "", issueDate: "", returnDate: ""})
         })
 
   }
