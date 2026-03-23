@@ -12,29 +12,39 @@ const Home = () => {
   const [studentNo, setStudentNo] = useState(0)
   const [issueBookNo, setIssueBookNo] = useState(0)
 
+  const [bookLoad, setBookLoad] = useState(true)
+  const [studentLoad, setStudentLoad] = useState(true)
+  const [issueLoad, setIssueLoad] = useState(true)
+
   useEffect(()=>{
+    setBookLoad(true)
     axios.get("https://library-management-backend-anmt.onrender.com/allbooks")
     .then((response)=>{
        setBookNo(response.data.length)
        console.log(response.data.length);
+       setBookLoad(false)
     })
  
  }, [])
 
  useEffect(()=>{
+  setStudentLoad(true)
   axios.get("https://library-management-backend-anmt.onrender.com/allstudents")
   .then((response)=>{
      setStudentNo(response.data.length)
      console.log(response.data.length);
+     setStudentLoad(false)
   })
 
 }, [])
 
 useEffect(()=>{
+   setIssueLoad(true)
   axios.get("https://library-management-backend-anmt.onrender.com/allissuebooks")
   .then((response)=>{
      setIssueBookNo(response.data.length)
      console.log(response.data.length);
+     setIssueLoad(false)
   })
 
 }, [])
@@ -57,13 +67,13 @@ useEffect(()=>{
         </div>
       </div> */}
 
-      <Card No={bookNo} text="Total Books"/>
-      <Card No={studentNo} text="Total students"/>
-      <Card No={issueBookNo} text="Total Issue Books"/>
+      <Card loader={bookLoad} No={bookNo} text="Total Books"/>
+      <Card loader={studentLoad} No={studentNo} text="Total students"/>
+      <Card loader={issueLoad} No={issueBookNo} text="Total Issue Books"/>
       
     </div>
 
-    <div className=' pt-16 bg-gray-800 h-screen w-full flex flex-col items-center gap-10'>
+    <div className=' pt-16 bg-gray-800 h-screen w-full flex flex-col justify-center items-center gap-10'>
 
       <h1 className='text-4xl text-white font-bold'>About</h1>
       
