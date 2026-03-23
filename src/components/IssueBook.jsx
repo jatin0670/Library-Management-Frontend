@@ -11,6 +11,8 @@ const IssueBook = () => {
 
   const [book, setBook] = useState([])
 
+  const [load, setLoad] = useState(false)
+
   const [form, setForm] = useState({
     name: "",
     book: "",
@@ -24,8 +26,9 @@ const IssueBook = () => {
 
   const handleSubmit = (e)=>{
     e.preventDefault()
+    setLoad(true)
     
-     if(form.name === "" || form.book === "" || form.issueDate === "" || form.returnDate){
+     if(form.name === "" || form.book === "" || form.issueDate === "" || form.returnDate === ""){
         window.alert("fill all the fields!")
         return;
      }
@@ -34,6 +37,7 @@ const IssueBook = () => {
         .then((response)=>{
           setIssueBook([...issueBook, response.data])
           window.alert("Student added successfully!")
+          setLoad(false)
         })
 
   }
@@ -110,7 +114,7 @@ const IssueBook = () => {
              <input onChange={handleChange} name="returnDate" value={form.returnDate} type="date" />
             </div>
           
-            <button className=' py-2 px-4 bg-[#294666] text-white font-bold rounded-md hover:scale-95 cursor-pointer shadow-sm shadow-black' type="submit">Issue Book</button>
+            <button className=' py-2 px-4 bg-[#294666] text-white font-bold rounded-md hover:scale-95 cursor-pointer shadow-sm shadow-black' type="submit">{load ? "Addding..." : "Issue Book"}</button>
          </form>
    
        </div> 

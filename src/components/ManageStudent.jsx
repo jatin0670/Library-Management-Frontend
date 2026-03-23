@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 const ManageStudent = () => {
 
    const [student, setStudent] = useState([]);
+   const [load, setLoad] = useState(false)
 
    const [form, setForm] = useState({
         name: "",
@@ -21,6 +22,7 @@ const ManageStudent = () => {
 
    const handleSubmit = (e)=>{
        e.preventDefault()
+       setLoad(true)
 
        if(form.name === "" || form.email === "" || form.roll === "" || form.course === ""){
           window.alert("Please fill all the fields")
@@ -31,6 +33,7 @@ const ManageStudent = () => {
        .then(response);
        setStudent([...student, response.data]);
        window.alert("Student added successfully!")
+       setLoad(false)
        
    }
 
@@ -74,7 +77,7 @@ const ManageStudent = () => {
             <option value="BSC">BSC</option>
             
           </select>
-          <button className=' py-2 px-4 bg-[#294666] text-white font-bold rounded-md hover:scale-95 cursor-pointer shadow-sm shadow-black' type="submit">Add Student</button>
+          <button className=' py-2 px-4 bg-[#294666] text-white font-bold rounded-md hover:scale-95 cursor-pointer shadow-sm shadow-black' type="submit">{load ? "Adding..." : "Add Student"}</button>
       </form>
     </div>
 

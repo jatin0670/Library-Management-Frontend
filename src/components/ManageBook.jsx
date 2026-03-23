@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 const ManageBook = () => {  
 
   const [book, setBook] = useState([])
+  const [load, setLoad] = useState(false)
 
   const [form, setForm] = useState({
     title: "",
@@ -21,6 +22,7 @@ const ManageBook = () => {
 
   const handleSubmit = (e)=>{
     e.preventDefault()
+    setLoad(true)
 
     if(form.title === "" || form.author === "" || form.qty === "" || form.available === ""){
       window.alert("Please fill all the fields")
@@ -31,6 +33,7 @@ const ManageBook = () => {
       .then((response)=>{
          setBook([...book, response.data])
          window.alert("Student added successfully!")
+         setLoad(false)
       })
      
   }
@@ -81,7 +84,7 @@ const ManageBook = () => {
           <input name='available' value={form.available} onChange={handleChange} className='px-3 py-2 text-black outline-gray-600 outline rounded-lg' type="number" />
         </div>
 
-        <button type='submit' className=' py-2 px-4 bg-[#294666] text-white font-bold rounded-md hover:scale-95 cursor-pointer shadow-sm shadow-black'>Add Book</button>
+        <button type='submit' className=' py-2 px-4 bg-[#294666] text-white font-bold rounded-md hover:scale-95 cursor-pointer shadow-sm shadow-black'>{load ? "Adding..." : "Add Book"}</button>
       </form>
     </div>
 
