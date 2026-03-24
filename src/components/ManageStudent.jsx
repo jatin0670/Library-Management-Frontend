@@ -26,6 +26,7 @@ const ManageStudent = () => {
 
        if(form.name === "" || form.email === "" || form.roll === "" || form.course === ""){
           window.alert("Please fill all the fields")
+          setLoad(false)
            return;
        }
        

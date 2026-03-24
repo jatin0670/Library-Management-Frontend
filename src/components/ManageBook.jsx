@@ -26,6 +26,7 @@ const ManageBook = () => {
 
     if(form.title === "" || form.author === "" || form.qty === "" || form.available === ""){
       window.alert("Please fill all the fields")
+      setLoad(false)
       return;
     }
     
